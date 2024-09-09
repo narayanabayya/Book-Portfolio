@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    font-family: "Poppins",sans-serif;
+    /* color: white; */
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    overflow: hidden;
+}
+:root{
+    --cover-color:linear-gradient(45deg, #00abf0,#1479a4);
+}
+.wrapper{
+    position: relative;
+    height: 40rem;
+    width: 60rem;
+    padding: 1.5rem;
+    animation: show-animate 2s forwards;
+    perspective: 250rem;
+}
+
+@keyframes show-animate {
+    0%,30%{
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    
+}
+.cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background:var(--cover-color);
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    transform-origin: right;
+}
+.cover.cover-right{
+    z-index: 100;
+    transition: transform 1s cubic-bezier(.645,.045,.355,1);
+}
+.cover.cover-right.turn{
+    transform: rotateY(180deg);
+}
+.cover.cover-left{
+    z-index: -1;
+}
+
+.book{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 250rem;
+}
+.book .book-page{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-image: repeating-linear-gradient(rgb(201, 218, 232),rgb(195, 237, 237));
+    box-shadow: 0 0 0.6rem rgba(0,0,0,0.1);
+    display: flex;
+    padding: 1rem;
+}
+/* .book .book-page h1{
+    text-align: center;
+    background-color: red;
+} */
+.book-page.page-left{
+box-shadow: -.6,.6,.6 rgba(0,0,0,0.1);
+}
+
+.profile-section{
+    /* background-color: teal; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.profile-section img{
+    border-radius: 50%;
+    border: 1px solid #00abf0;
+}
+i{
+    color: #00abf0;
+}
+.contact-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.social-media {
+    font-size: 26px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.summary p{
+    text-align: justify;
+    font-size: medium;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.buttons a{
+    border: 1px solid #00abf0;
+    padding: 10px;
+    border-radius: 10px;
+}
+.book-page.page-right{
+    position: absolute;
+    right: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(.645,.045,.355,1);
+}
+
+.book-page .page-front{
+    transform: rotateY(0deg) translateZ(1px);
+    background-color: #d6eaef;
+
+}
+.book-page .page-back{
+    transform: rotateY(180deg) translateZ(1px);
+    box-shadow: -.6,.6,.6 rgba(0,0,0,0.1);
+}
+.book-page.page-right.turn{
+    transform: rotateY(-180deg);
+}
+.book-page .page-front,
+.book-page .page-back{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.2rem;
+}
+
+.education-details{
+    border-left: 10px solid #00abf0;
+    border-right: 10px solid #00abf0;
+    /* margin: 10px; */
+    padding: 15px;
+    border-radius: 10px;
+}
+.qualities{
+    text-align: center;
+    border: 1px solid #00abf0;
+    border-radius: 4px;
+    margin: 10px;
+}
+.page-number{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+}
+.nxtPage{
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    border: 1px solid #00abf0;
+    padding: 7px;
+    width: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.nxtPage:hover i{
+    color: white;
+}
+.nxtPage:hover {
+    background-color: #00abf0;
+    cursor: pointer;
+}
+.project-head{
+    display: flex;
+    justify-content: space-between;
+}
+.projects{
+    border: 1px solid #00abf0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    margin: 1rem;
+}
+.nxtPage.back{
+    left: 10px;
+    /* left: 10px;
+    position: absolute;
+    bottom: 10px;
+    border: 1px solid #00abf0;
+    padding: 7px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; */
+}
+.nxtPage:hover i{
+    color: white;
+}
+.nxtPage:hover {
+    background-color: #00abf0;
+    cursor: pointer;
+}
+.project-details .list{
+    width: 105px;
+
+}
+.project-details.project{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+.project-details.project .imgclip{
+    height: 50px;
+}
+.imghead{
+    font-size: 30px;
+}
+.imgclip.smallimg{
+    height: 60px;
+    margin: 10px;
+}
+.small{
+    font-size: small;
+}
+.skills-list{
+    border-bottom: 5px solid #00abf0;
+    border-top: 5px solid #00abf0;
+
+    border-radius: 10px;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+.contact a{
+    border:1px solid #00abf0;
+    padding: 5px;
+    background-color: #00abf0;
+    color: white;
+    border-radius: 5px;
+}
+.profile{
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    border: 1px solid #00abf0;
+    padding: 7px;
+    width: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+
+}
+.profile .text{
+    position: absolute;
+    top: -20px;
+    left: -8px;
+    transition: 0.5;
+    opacity: 0;
+}
+.profile:hover{
+    cursor: pointer;
+}
+.profile:hover .text{
+    opacity: 1;
+
+}
